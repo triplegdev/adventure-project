@@ -56,7 +56,7 @@ class Player {
        } else {
         console.log(`${itemName} not found in inventory`)
        }
-        
+
         // Your code here
     }
 
@@ -64,6 +64,12 @@ class Player {
         // Allow the player to eat food items, but not non-food items
 
         // Your code here
+        const itemToEat = this.getItemByName(itemName);
+        if (itemToEat && itemToEat instanceof Food) {
+            const itemIndex = this.items.indexOf(itemToEat);
+            this.items.splice(itemIndex, 1);
+        }
+        else console.log(`You can't eat ${itemName}`);
     }
 
     getItemByName(name) {
