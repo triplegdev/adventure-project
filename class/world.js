@@ -36,7 +36,17 @@ class World {
             }
 
         }
-
+        for (let i = 0; i < itemList.length; i++) {
+            const itemData = itemList[i];  
+            let newItem;
+            if (itemData.isFood) newItem = new Food(itemData.name, itemData.description);
+            else newItem = new Item(itemData.name, itemData.description);
+            //console.log('###',this.rooms)
+            // this.rooms[itemData.room].items.push(newItem)
+            const itemRoomNum = itemData.room
+            const itemRoomObj = this.rooms[itemRoomNum]
+            itemRoomObj.items.push(newItem)
+        }
         // Instantiate items using data stored in the itemList variable
             // A non-food item should be instantiated as an instance of the `Item` class
             // A food item should be instantiated as an instance of the `Food` class
