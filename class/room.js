@@ -45,7 +45,10 @@ class Room {
 
     getItemByName(name) {
         // Retrieves an item from a room by item name
-
+      for (let i = 0; i < this.items.length; i++) {
+        const item = this.items[i];
+        if (item.name === name) return item
+      }
         // Your code here
     }
 
